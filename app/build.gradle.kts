@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace = "devandroid.gabriel.tentativa_curso2"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "devandroid.gabriel.tentativa_curso2"
-        minSdk = 24
-        targetSdk = 33
+        minSdk = 19
+        targetSdk = 32
         versionCode = 1
         versionName = "1.0"
 
@@ -29,6 +29,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    buildToolsVersion = "34.0.0"
 }
 
 dependencies {
