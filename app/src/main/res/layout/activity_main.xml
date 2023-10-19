@@ -5,7 +5,7 @@
     android:id="@+id/txt_telefone"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".View.MainActivity">
     <EditText
         android:id="@+id/txtNome"
         android:layout_width="0dp"
