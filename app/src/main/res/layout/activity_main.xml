@@ -31,13 +31,13 @@
         android:inputType="text"
         android:minHeight="48dp"
         android:text="@string/txt_sobrenome"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText3"
+        app:layout_constraintBottom_toTopOf="@+id/txt_telefone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="LabelFor" />
 
     <EditText
-        android:id="@+id/editTextText3"
+        android:id="@+id/txt_telefone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
@@ -67,7 +67,7 @@
         tools:ignore="LabelFor" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/txt_Titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -78,7 +78,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_Salvar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -88,7 +88,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_Tipo_Curso" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_Limpar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="42dp"
@@ -98,16 +98,16 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_Tipo_Curso" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button_Enviar"
         android:layout_width="321dp"
         android:layout_height="48dp"
         android:layout_marginStart="12dp"
         android:layout_marginBottom="172dp"
         android:text="@string/enviar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/button_Limpar"
         app:layout_constraintHorizontal_bias="0.532"
-        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintStart_toEndOf="@+id/button_Salvar"
         app:layout_constraintTop_toBottomOf="@+id/txt_Tipo_Curso"
         app:layout_constraintVertical_bias="1.0" />
 
