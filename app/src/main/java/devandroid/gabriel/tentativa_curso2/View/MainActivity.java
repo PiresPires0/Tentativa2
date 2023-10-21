@@ -13,11 +13,8 @@ import devandroid.gabriel.tentativa_curso2.Model.Pessoa;
 import devandroid.gabriel.tentativa_curso2.R;
 
 public class MainActivity extends AppCompatActivity {
-    Pessoa pessoa; //Declaraçao de objeto
+    Pessoa pessoa;
     Pessoa novaPessoa;
-
-
-
     EditText txt_Nome;
     EditText txt_sobrenome;
     EditText txt_Tipo_Curso;
@@ -35,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         pessoa = new Pessoa();  //Criaçao do objeto(Instaciando)
         pessoa.setPrimeiroNome("Gabriel");
         pessoa.setSegundoNome("Pires");
-       pessoa.setCursoDesejado("Melhor Curso");
+        pessoa.setCursoDesejado("Melhor Curso");
         pessoa.setTelefoneContato("45");
 
         novaPessoa = new Pessoa();
@@ -81,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
            Toast.makeText(MainActivity.this,"Salvo",Toast.LENGTH_LONG).show();
        });
 
-        //Log.i("POOandroid",pessoa.toString());
+
 
     }
 
