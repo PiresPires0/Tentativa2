@@ -3,7 +3,7 @@ package devandroid.gabriel.tentativa_curso2.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,12 +13,8 @@ import devandroid.gabriel.tentativa_curso2.Model.Pessoa;
 import devandroid.gabriel.tentativa_curso2.R;
 
 public class MainActivity extends AppCompatActivity {
-    Pessoa pessoa; //Declaraçao de objeto
+    Pessoa pessoa;
     Pessoa novaPessoa;
-
-    String dadosPessoa;
-    String dadosNovaPessoa;
-
     EditText txt_Nome;
     EditText txt_sobrenome;
     EditText txt_Tipo_Curso;
@@ -34,10 +30,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         pessoa = new Pessoa();  //Criaçao do objeto(Instaciando)
-//        pessoa.setPrimeiroNome("Gabriel");
-//        pessoa.setSegundoNome("Pires");
-//        pessoa.setCursoDesejado("Melhor Curso");
-//        pessoa.setTelefoneContato("45");
+        pessoa.setPrimeiroNome("Gabriel");
+        pessoa.setSegundoNome("Pires");
+        pessoa.setCursoDesejado("Melhor Curso");
+        pessoa.setTelefoneContato("45");
 
         novaPessoa = new Pessoa();
 
@@ -60,38 +56,29 @@ public class MainActivity extends AppCompatActivity {
         txt_telefone0.setText(pessoa.getCursoDesejado());
         txt_Tipo_Curso.setText(pessoa.getTelefoneContato());
 
-       button_Limpar.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               txt_Nome.setText(" ");
-               txt_sobrenome.setText(" ");
-               txt_telefone0.setText(" ");
-               txt_Tipo_Curso.setText(" ");
+       button_Limpar.setOnClickListener((View v) -> {
+           txt_Nome.setText(" ");
+           txt_sobrenome.setText(" ");
+           txt_telefone0.setText(" ");
+           txt_Tipo_Curso.setText(" ");
 
-           }
        });
 
-       button_Enviar.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               Toast.makeText(MainActivity.this,"Volte Sempre",Toast.LENGTH_LONG).show();
-               finish();
-           }
+       button_Enviar.setOnClickListener(v -> {
+           Toast.makeText(MainActivity.this,"Volte Sempre",Toast.LENGTH_LONG).show();
+           finish();
        });
 
-       button_Salvar.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               pessoa.setPrimeiroNome(txt_Nome.getText().toString());
-               pessoa.setSegundoNome(txt_sobrenome.getText().toString());
-               pessoa.setCursoDesejado(txt_Tipo_Curso.getText().toString());
-               pessoa.setTelefoneContato(txt_telefone0.getText().toString());
+       button_Salvar.setOnClickListener(v -> {
+           pessoa.setPrimeiroNome(txt_Nome.getText().toString());
+           pessoa.setSegundoNome(txt_sobrenome.getText().toString());
+           pessoa.setCursoDesejado(txt_Tipo_Curso.getText().toString());
+           pessoa.setTelefoneContato(txt_telefone0.getText().toString());
 
-               Toast.makeText(MainActivity.this,"Salvo",Toast.LENGTH_LONG).show();
-           }
+           Toast.makeText(MainActivity.this,"Salvo",Toast.LENGTH_LONG).show();
        });
 
-        //Log.i("POOandroid",pessoa.toString());
+
 
     }
 
