@@ -3,6 +3,7 @@ package devandroid.gabriel.tentativa_curso2.View;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import devandroid.gabriel.tentativa_curso2.Model.Pessoa;
 import devandroid.gabriel.tentativa_curso2.R;
@@ -50,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
         dadosNovaPessoa += novaPessoa.getCursoDesejado();
         dadosNovaPessoa = "Numero De Telefone ";
         dadosNovaPessoa += novaPessoa.getTelefoneContato();
+
+        Log.i("POOandroid",pessoa.toString());
 
     }
 

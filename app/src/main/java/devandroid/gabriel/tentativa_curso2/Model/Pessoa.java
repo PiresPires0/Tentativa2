@@ -1,5 +1,7 @@
 package devandroid.gabriel.tentativa_curso2.Model;
 
+import androidx.annotation.NonNull;
+
 public class Pessoa {
     //Criando os atributos
         private String primeiroNome;
@@ -26,4 +28,14 @@ public class Pessoa {
         public String getTelefoneContato(){return telefoneContato;}
 
         public void setTelefoneContato(String telefoneContato){this.telefoneContato = telefoneContato;}
+
+    @Override
+    public String toString() {
+        return "Pessoa{" +
+                "primeiroNome='" + primeiroNome + '\'' +
+                ", segundoNome='" + segundoNome + '\'' +
+                ", cursoDesejado='" + cursoDesejado + '\'' +
+                ", telefoneContato='" + telefoneContato + '\'' +
+                '}';
+    }
 }
