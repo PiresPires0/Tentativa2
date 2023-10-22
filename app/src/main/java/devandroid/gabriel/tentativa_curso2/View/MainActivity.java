@@ -2,6 +2,8 @@ package devandroid.gabriel.tentativa_curso2.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.view.View;
@@ -13,12 +15,16 @@ import devandroid.gabriel.tentativa_curso2.Controller.PessoaControler;
 import devandroid.gabriel.tentativa_curso2.Model.Pessoa;
 import devandroid.gabriel.tentativa_curso2.R;
 
+
 public class MainActivity extends AppCompatActivity {
     Pessoa pessoa;
     Pessoa novaPessoa;
 
     PessoaControler pessoaControler;
 
+    SharedPreferences preferences;
+
+    public static final String Nome_do_arquivo = "Lista_de_informaçoes";
 
     EditText txt_Nome;
     EditText txt_sobrenome;
@@ -34,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         pessoaControler = new PessoaControler();
+        preferences = getSharedPreferences(Nome_do_arquivo,0);
+        SharedPreferences.Editor Lista_Vip = preferences.edit();
 
 
         pessoa = new Pessoa();  //Criaçao do objeto(Instaciando)
@@ -82,6 +90,14 @@ public class MainActivity extends AppCompatActivity {
            pessoa.setCursoDesejado(txt_Tipo_Curso.getText().toString());
            pessoa.setTelefoneContato(txt_telefone0.getText().toString());
            pessoaControler.salvar(pessoa);
+
+           Lista_Vip.putString("Primeiro_Nome",pessoa.getPrimeiroNome());
+           Lista_Vip.putString("SegundoNome",pessoa.getSegundoNome());
+           Lista_Vip.putString("Curso_Desejado",pessoa.getCursoDesejado());
+           Lista_Vip.putString("Telefone",pessoa.getTelefoneContato());
+           Lista_Vip.apply();
+
+
            Toast.makeText(MainActivity.this,"Salvo",Toast.LENGTH_LONG).show();
        });
 
