@@ -9,12 +9,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import devandroid.gabriel.tentativa_curso2.Controller.PessoaControler;
 import devandroid.gabriel.tentativa_curso2.Model.Pessoa;
 import devandroid.gabriel.tentativa_curso2.R;
 
 public class MainActivity extends AppCompatActivity {
     Pessoa pessoa;
     Pessoa novaPessoa;
+
+    PessoaControler pessoaControler;
+
+
     EditText txt_Nome;
     EditText txt_sobrenome;
     EditText txt_Tipo_Curso;
@@ -28,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        pessoaControler = new PessoaControler();
+
 
         pessoa = new Pessoa();  //Criaçao do objeto(Instaciando)
         pessoa.setPrimeiroNome("Gabriel");
@@ -74,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
            pessoa.setSegundoNome(txt_sobrenome.getText().toString());
            pessoa.setCursoDesejado(txt_Tipo_Curso.getText().toString());
            pessoa.setTelefoneContato(txt_telefone0.getText().toString());
-
+           pessoaControler.salvar(pessoa);
            Toast.makeText(MainActivity.this,"Salvo",Toast.LENGTH_LONG).show();
        });
 
