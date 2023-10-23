@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
     SharedPreferences preferences;
 
+    SharedPreferences.Editor Lista_Vip;
+
     public static final String Nome_do_arquivo = "Lista_de_informaçoes";
 
     EditText txt_Nome;
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         pessoaControler = new PessoaControler();
         preferences = getSharedPreferences(Nome_do_arquivo,0);
-        SharedPreferences.Editor Lista_Vip = preferences.edit();
+        Lista_Vip = preferences.edit();
 
 
         pessoa = new Pessoa();  //Criaçao do objeto(Instaciando)
@@ -81,6 +83,10 @@ public class MainActivity extends AppCompatActivity {
            txt_sobrenome.setText(" ");
            txt_telefone0.setText(" ");
            txt_Tipo_Curso.setText(" ");
+
+           Lista_Vip.clear();
+           Lista_Vip.apply();
+
 
        });
 
