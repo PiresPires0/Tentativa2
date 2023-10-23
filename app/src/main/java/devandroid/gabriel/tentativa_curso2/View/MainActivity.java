@@ -18,7 +18,7 @@ import devandroid.gabriel.tentativa_curso2.R;
 
 public class MainActivity extends AppCompatActivity {
     Pessoa pessoa;
-    Pessoa novaPessoa;
+
 
     PessoaControler pessoaControler;
 
@@ -50,12 +50,17 @@ public class MainActivity extends AppCompatActivity {
         pessoa.setCursoDesejado("Melhor Curso");
         pessoa.setTelefoneContato("45");
 
-        novaPessoa = new Pessoa();
+        pessoa.setPrimeiroNome(preferences.getString("Primeiro_Nome",""));
+        pessoa.setSegundoNome(preferences.getString("SegundoNome",""));
+        pessoa.setCursoDesejado(preferences.getString("Curso_Desejado",""));
+        pessoa.setTelefoneContato(preferences.getString("Telefone",""));
 
-        novaPessoa.setPrimeiroNome("carlos");
-        novaPessoa.setSegundoNome("Magno");
-        novaPessoa.setCursoDesejado("Segundo Melhor");
-        novaPessoa.setTelefoneContato("Segundo Melhor");
+        txt_Nome.setText(pessoa.getPrimeiroNome());
+        txt_Nome.setText(pessoa.getSegundoNome());
+        txt_Nome.setText(pessoa.getTelefoneContato());
+        txt_Nome.setText(pessoa.getCursoDesejado());
+
+
 
         txt_Nome = findViewById(R.id.txt_Nome);
         txt_sobrenome = findViewById(R.id.txt_sobrenome);
@@ -66,10 +71,10 @@ public class MainActivity extends AppCompatActivity {
         button_Limpar = findViewById(R.id.button_Limpar);
         button_Salvar = findViewById(R.id.button_Salvar);
 
-        txt_Nome.setText(pessoa.getPrimeiroNome());
-        txt_sobrenome.setText(pessoa.getSegundoNome());
-        txt_telefone0.setText(pessoa.getCursoDesejado());
-        txt_Tipo_Curso.setText(pessoa.getTelefoneContato());
+//        txt_Nome.setText(pessoa.getPrimeiroNome());
+//        txt_sobrenome.setText(pessoa.getSegundoNome());
+//        txt_telefone0.setText(pessoa.getCursoDesejado());
+//        txt_Tipo_Curso.setText(pessoa.getTelefoneContato());
 
        button_Limpar.setOnClickListener((View v) -> {
            txt_Nome.setText(" ");
