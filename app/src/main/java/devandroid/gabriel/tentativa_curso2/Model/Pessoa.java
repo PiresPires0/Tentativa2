@@ -14,8 +14,8 @@ public class Pessoa {
             return primeiroNome;
         }
 
-        public void setPrimeiroNome(String primeiroNome){
-            this.primeiroNome = primeiroNome;}
+        public void setPrimeiroNome(String primeirroNome){
+            this.primeiroNome = primeirroNome;}
 
          public String getSegundoNome(){return segundoNome;}
 

@@ -2,7 +2,6 @@ package devandroid.gabriel.tentativa_curso2.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -15,18 +14,13 @@ import devandroid.gabriel.tentativa_curso2.Controller.PessoaControler;
 import devandroid.gabriel.tentativa_curso2.Model.Pessoa;
 import devandroid.gabriel.tentativa_curso2.R;
 
-
 public class MainActivity extends AppCompatActivity {
     Pessoa pessoa;
 
+    SharedPreferences preferences;
 
     PessoaControler pessoaControler;
 
-    SharedPreferences preferences;
-
-    SharedPreferences.Editor Lista_Vip;
-
-    public static final String Nome_do_arquivo = "Lista_de_informaçoes";
 
     EditText txt_Nome;
     EditText txt_sobrenome;
@@ -41,26 +35,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        preferences = getSharedPreferences("Lista",0);
+        SharedPreferences.Editor Lista_Modificadora = preferences.edit();
+
         pessoaControler = new PessoaControler();
-        preferences = getSharedPreferences(Nome_do_arquivo,0);
-        Lista_Vip = preferences.edit();
 
 
         pessoa = new Pessoa();  //Criaçao do objeto(Instaciando)
-        pessoa.setPrimeiroNome("Gabriel");
-        pessoa.setSegundoNome("Pires");
-        pessoa.setCursoDesejado("Melhor Curso");
-        pessoa.setTelefoneContato("45");
-
-        pessoa.setPrimeiroNome(preferences.getString("Primeiro_Nome",""));
-        pessoa.setSegundoNome(preferences.getString("SegundoNome",""));
-        pessoa.setCursoDesejado(preferences.getString("Curso_Desejado",""));
-        pessoa.setTelefoneContato(preferences.getString("Telefone",""));
-
-        txt_Nome.setText(pessoa.getPrimeiroNome());
-        txt_Nome.setText(pessoa.getSegundoNome());
-        txt_Nome.setText(pessoa.getTelefoneContato());
-        txt_Nome.setText(pessoa.getCursoDesejado());
+        pessoa.setPrimeiroNome(preferences.getString("Nome",""));
+        pessoa.setSegundoNome(preferences.getString("Sobrenome",""));
+        pessoa.setTelefoneContato(preferences.getString("Tipo_de_Curso",""));
+        pessoa.setCursoDesejado(preferences.getString("Telefone",""));
+//        pessoa.setPrimeiroNome("Nome");
+//        pessoa.setSegundoNome("Sobrenome");
+//        pessoa.setCursoDesejado("Tipo De Curso");
+//        pessoa.setTelefoneContato("Telefone");
 
 
 
@@ -73,44 +62,41 @@ public class MainActivity extends AppCompatActivity {
         button_Limpar = findViewById(R.id.button_Limpar);
         button_Salvar = findViewById(R.id.button_Salvar);
 
-//        txt_Nome.setText(pessoa.getPrimeiroNome());
-//        txt_sobrenome.setText(pessoa.getSegundoNome());
-//        txt_telefone0.setText(pessoa.getCursoDesejado());
-//        txt_Tipo_Curso.setText(pessoa.getTelefoneContato());
+        txt_Nome.setText(pessoa.getPrimeiroNome());
+        txt_sobrenome.setText(pessoa.getSegundoNome());
+        txt_telefone0.setText(pessoa.getCursoDesejado());
+        txt_Tipo_Curso.setText(pessoa.getTelefoneContato());
 
-       button_Limpar.setOnClickListener((View v) -> {
-           txt_Nome.setText(" ");
-           txt_sobrenome.setText(" ");
-           txt_telefone0.setText(" ");
-           txt_Tipo_Curso.setText(" ");
+        button_Limpar.setOnClickListener((View v) -> {
+            txt_Nome.setText(" ");
+            txt_sobrenome.setText(" ");
+            txt_telefone0.setText(" ");
+            txt_Tipo_Curso.setText(" ");
+            Lista_Modificadora.clear();
+            Lista_Modificadora.apply();
 
-           Lista_Vip.clear();
-           Lista_Vip.apply();
+        });
 
+        button_Enviar.setOnClickListener(v -> {
+            Toast.makeText(MainActivity.this,"Volte Sempre",Toast.LENGTH_LONG).show();
+            finish();
+        });
 
-       });
+        button_Salvar.setOnClickListener(v -> {
+            pessoa.setPrimeiroNome(txt_Nome.getText().toString());
+            pessoa.setSegundoNome(txt_sobrenome.getText().toString());
+            pessoa.setCursoDesejado(txt_Tipo_Curso.getText().toString());
+            pessoa.setTelefoneContato(txt_telefone0.getText().toString());
+            pessoaControler.salvar(pessoa);
 
-       button_Enviar.setOnClickListener(v -> {
-           Toast.makeText(MainActivity.this,"Volte Sempre",Toast.LENGTH_LONG).show();
-           finish();
-       });
+            Lista_Modificadora.putString("Nome",pessoa.getPrimeiroNome());
+            Lista_Modificadora.putString("Sobrenome",pessoa.getSegundoNome());
+            Lista_Modificadora.putString("Tipo_de_Curso",pessoa.getCursoDesejado());
+            Lista_Modificadora.putString("Telefone",pessoa.getTelefoneContato());
+            Lista_Modificadora.apply();
 
-       button_Salvar.setOnClickListener(v -> {
-           pessoa.setPrimeiroNome(txt_Nome.getText().toString());
-           pessoa.setSegundoNome(txt_sobrenome.getText().toString());
-           pessoa.setCursoDesejado(txt_Tipo_Curso.getText().toString());
-           pessoa.setTelefoneContato(txt_telefone0.getText().toString());
-           pessoaControler.salvar(pessoa);
-
-           Lista_Vip.putString("Primeiro_Nome",pessoa.getPrimeiroNome());
-           Lista_Vip.putString("SegundoNome",pessoa.getSegundoNome());
-           Lista_Vip.putString("Curso_Desejado",pessoa.getCursoDesejado());
-           Lista_Vip.putString("Telefone",pessoa.getTelefoneContato());
-           Lista_Vip.apply();
-
-
-           Toast.makeText(MainActivity.this,"Salvo",Toast.LENGTH_LONG).show();
-       });
+            Toast.makeText(MainActivity.this,"Salvo",Toast.LENGTH_LONG).show();
+        });
 
 
 
