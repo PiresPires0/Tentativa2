@@ -8,8 +8,9 @@ public class Pessoa {
         private String segundoNome;
         private String cursoDesejado;
         private String telefoneContato;
+
     //CONSTRUCTOR
-    public Pessoa(){}
+
         public String getPrimeiroNome(){
             return primeiroNome;
         }
