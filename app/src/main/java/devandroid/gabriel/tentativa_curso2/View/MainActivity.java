@@ -10,12 +10,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
+
+import devandroid.gabriel.tentativa_curso2.Controller.Curso_Controller;
 import devandroid.gabriel.tentativa_curso2.Controller.PessoaControler;
+import devandroid.gabriel.tentativa_curso2.Model.Curso_desejado;
 import devandroid.gabriel.tentativa_curso2.Model.Pessoa;
 import devandroid.gabriel.tentativa_curso2.R;
 
 public class MainActivity extends AppCompatActivity {
     Pessoa pessoa;
+
+    Curso_Controller cursoController;
+
+    List<Curso_desejado> lista_curso;
 
 //
     PessoaControler pessoaControler;
@@ -41,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
 
         pessoa = new Pessoa();  //Criaçao do objeto(Instaciando)
         pessoaControler.buscar(pessoa);
+
+        cursoController = new Curso_Controller();
+        lista_curso = cursoController.getLista_desejada();
 
 
         txt_Nome = findViewById(R.id.txt_Nome);
