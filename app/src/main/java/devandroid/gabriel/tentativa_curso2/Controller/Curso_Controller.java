@@ -22,14 +22,17 @@ public List getLista_desejada(){
     return lista_desejada;
 };
 
-public ArrayList<String> lista_spínner(){
+public ArrayList<String> dadosSinner(){
 
-    ArrayList<String> Dados = new ArrayList<>();
+   ArrayList<String> dados = new ArrayList<>();
 
     for (int i = 0; i < getLista_desejada().size(); i++) {
-        Curso_desejado objeto = (Curso_desejado) getLista_desejada().get(i);
-        Dados.add(objeto.getNome_do_curso());
+
+        Curso_desejado objeto =(Curso_desejado) getLista_desejada().get(i);
+        dados.add(objeto.getNome_do_curso());
     }
-    return Dados;
+    return dados;
 }
+
+
 }
