@@ -78,11 +78,11 @@ public class MainActivity extends AppCompatActivity {
         pessoaControler.buscar(pessoa);
 
         //Adapter
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,cursoController.dadosSinner());
+        adapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        lista_spnner.setAdapter(adapter);
 
 
-        ArrayAdapter<String> adpapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,cursoController.dadosSinner());
-        adpapter.setDropDownViewResource(android.R.layout.simple_list_item_1);
-        lista_spnner.setAdapter(adpapter);
 
 
         button_Limpar.setOnClickListener(v -> {

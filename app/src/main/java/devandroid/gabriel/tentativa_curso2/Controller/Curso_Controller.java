@@ -2,17 +2,17 @@ package devandroid.gabriel.tentativa_curso2.Controller;
 
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 import devandroid.gabriel.tentativa_curso2.Model.Curso_desejado;
 
 public class Curso_Controller {
 
-public List lista_desejada;
+public ArrayList<Curso_desejado> lista_desejada;
 
-public List getLista_desejada(){
+public ArrayList<Curso_desejado> getLista_desejada(){
 
-    lista_desejada = new ArrayList<Curso_desejado>();
+    lista_desejada = new ArrayList<>();
     lista_desejada.add(new Curso_desejado("Java"));
     lista_desejada.add(new Curso_desejado("flutter"));
     lista_desejada.add(new Curso_desejado("Python"));
@@ -20,7 +20,7 @@ public List getLista_desejada(){
     lista_desejada.add(new Curso_desejado("JavasCript"));
 
     return lista_desejada;
-};
+}
 
 public ArrayList<String> dadosSinner(){
 
@@ -28,7 +28,7 @@ public ArrayList<String> dadosSinner(){
 
     for (int i = 0; i < getLista_desejada().size(); i++) {
 
-        Curso_desejado objeto =(Curso_desejado) getLista_desejada().get(i);
+        Curso_desejado objeto = getLista_desejada().get(i);
         dados.add(objeto.getNome_do_curso());
     }
     return dados;
